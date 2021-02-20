@@ -208,10 +208,20 @@ const app = {
   },
   hideSong: function () {
     const songActive = $$('.song')
+    let check =0;
     songActive.forEach((e,i) => {
         if(i < songOld)
+        {
         e.className = "song hide"
+        check++
+        }
     });
+    if (check == this.songs.length) {
+        songActive.forEach((e,i) => {
+            e.className = "song"
+        });
+        songActive[0].className = "song active"
+    }
   },
   activeSong: function () {
     const songActive = $$('.song')
